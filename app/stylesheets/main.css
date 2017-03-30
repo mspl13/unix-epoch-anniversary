@@ -41,7 +41,7 @@ p {
 /*
  * Timestamp goal
  */
-#uea-timestamp-goal {
+#uea-timestamp-goal, #uea-timestamp-goal__date {
   font-weight: bold;
 }
 
@@ -57,9 +57,9 @@ p {
  */
 @media only screen and (max-width: 767px) {
   .uea-timestamp {
-    margin-top: 25vh;
+    margin-top: 23vh;
 
-    font-size: 16vw;
+    font-size: 14vw;
   }
 
   .uea-subtitle {
