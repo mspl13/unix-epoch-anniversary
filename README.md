@@ -8,7 +8,6 @@ To suggest new events to be tracked, just open an issue in the [GitHub repositor
 
 # TODOs
 - sync time to NTP Server and use local as fallback (or is the time calculated on every computer?)
-- new file for events
 - additional ideas
   - ideas: next major time (2000000000), end of 32-bit integer time, new years, leap seconds, leap year, round binary representations, round day/hour numbers since unix epoch
 - different "calculated values" text on each reload
@@ -17,5 +16,8 @@ To suggest new events to be tracked, just open an issue in the [GitHub repositor
 - webpack and js modules?
 - replace this todo list with repository issues
 - display the actual unix timestamp somewhere
-- add editorconfig
+- add editorconfig and linter
 - move TODOs to GitHub issue tracker
+- count up vs count down
+- check for performance issues (e.g. with chrome dev tools timeline)
+- generate complete "calculated values" string in js, so only one element needs to be updated

@@ -1,0 +1,13 @@
+{
+  "name": "unix-epoch-anniversary",
+  "version": "0.0.1",
+  "description": "A simple tracker for the next time_t party.",
+  "repository": "git@github.com:mspl13/unix-epoch-anniversary.git",
+  "main": "app/index.js",
+  "author": "mspl",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "webpack": "^2.3.2"
+  }
+}
