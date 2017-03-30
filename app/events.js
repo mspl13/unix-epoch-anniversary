@@ -11,6 +11,12 @@ export const ueaEvents = [
     "text": "foobar"
   },
 
+  // Next billennium
+  {
+    "timestamp": 2000000000,
+    "text": "foobar"
+  },
+
   // End of (32-bit) time
   {
     "timestamp": 2147483647,
