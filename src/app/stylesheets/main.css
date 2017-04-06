@@ -1,0 +1,68 @@
+/*TODO: refactor*/
+/*TODO: comments*/
+
+html, body {
+  min-height: 100%;
+  margin: 0 8px;
+}
+
+body {
+  text-align: center;
+
+  font-family: "Arial";
+  /*font-family: monospace;*/
+
+  background-color: #03A9F4;
+  background: linear-gradient(#03A9F4, #8BC34A);
+}
+
+p {
+  color: #fff;
+}
+
+/*
+ * Countdown display
+ */
+.uea-timestamp {
+  margin: 35vh 0 0 0;
+
+  font-size: 6em;
+
+  text-shadow: 0 0 3px #000;
+}
+
+/*
+ * Countdown subtitle
+ */
+.uea-subtitle {
+  font-size: 1.5em;
+}
+
+/*
+ * Timestamp goal
+ */
+#uea-timestamp-goal, #uea-timestamp-goal__date {
+  font-weight: bold;
+}
+
+/*
+ * Calculated values text
+ */
+.uea-calculated {
+  color: #fff;
+}
+
+/*
+ * Optimizations for smaller screens
+ */
+@media only screen and (max-width: 767px) {
+  .uea-timestamp {
+    margin-top: 23vh;
+
+    font-size: 14vw;
+  }
+
+  .uea-subtitle {
+    font-size: 6vw;
+  }
+}
