@@ -17,31 +17,42 @@
     <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
-  <!-- Countdown timestamp display -->
-    <p class="uea-timestamp">
-      <span id="uea-timestamp">0</span>
-    </p>
+    <div class="container">
+      <!-- Countdown timestamp display -->
+      <p class="uea-timestamp">
+        <span id="uea-timestamp">0</span>
+      </p>
 
-    <!-- Countdown subtitle -->
-    <p class="uea-subtitle">
-      seconds until the unix epoch time reaches <span id="uea-timestamp-goal"></span> seconds*,
-      <br />
-      on <span id="uea-timestamp-goal__date"></span>.
-    </p>
+      <!-- Countdown subtitle -->
+      <p class="uea-subtitle">
+        seconds until the unix epoch time reaches <span id="uea-timestamp-goal"></span> seconds*,
+        <br /> on <span id="uea-timestamp-goal__date"></span>.
+      </p>
 
-    <!-- Calculated values from timestamp above -->
-    <p class="uea-calculated">
-      Which (roughly) translates to
-      <span id="uea-calculated__days">0</span> days,
-      <span id="uea-calculated__hours">0</span> hours and
-      <span id="uea-calculated__minutes">0</span> minutes.
-      <!--<br />
-       (<span id="uea-timestamp-goal__date"></span>)-->
-    </p>
+      <!-- Calculated values from timestamp above -->
+      <p class="uea-calculated">
+        Which (roughly) translates to
+        <span id="uea-calculated__days">0</span> days,
+        <span id="uea-calculated__hours">0</span> hours and
+        <span id="uea-calculated__minutes">0</span> minutes.
+      </p>
 
-    <!-- Different footnotes on the texts above -->
-    <p class="uea-foonotes">*leap seconds not included</p>
-
+      <!-- Different footnotes on the texts above -->
+      <p class="uea-foonotes">*leap seconds not included</p>
+    </div>
+    <footer>
+      <ul>
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Unix_time">Learn More</a>
+        </li>
+        <li>
+          <a href="https://github.com/mspl13/unix-epoch-anniversary">GitHub</a>
+        </li>
+        <li>
+          <a href="https://spliethoever.de">spliethoever.de</a>
+        </li>                
+      </ul>
+    </footer>
     <script type="text/javascript" src="bundle.js"></script>
   </body>
 </html>
