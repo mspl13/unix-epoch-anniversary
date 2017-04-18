@@ -1,12 +1,22 @@
-/*TODO: refactor*/
-/*TODO: comments*/
+/**
+ * 1. Footer styles were taken from https://goo.gl/PeYkmx
+ *    (includes some fixes for known issues).
+ */
 
 html, body {
-  min-height: 100%;
-  margin: 0 8px;
+  /* Ensure full height background */
+  min-height: 100vh;
+
+  /* Overwrite default body margin */
+  margin: 0 0;
 }
 
 body {
+  height: 100%; /* 1. */
+
+  display: flex;
+  flex-direction: column;
+
   text-align: center;
 
   font-family: "Arial";
@@ -16,14 +26,23 @@ body {
   background: linear-gradient(#03A9F4, #8BC34A);
 }
 
-p {
+/***********************************************
+ * Main container
+ ***********************************************/
+.container {
+  flex: 1 0 auto; /* 1 */
+
+  margin: 0 16px;
+}
+
+.container p {
   color: #fff;
 }
 
 /*
  * Countdown display
  */
-.uea-timestamp {
+.container .uea-timestamp {
   margin: 35vh 0 0 0;
 
   font-size: 6em;
@@ -34,35 +53,119 @@ p {
 /*
  * Countdown subtitle
  */
-.uea-subtitle {
+.container .uea-subtitle {
   font-size: 1.5em;
 }
 
 /*
  * Timestamp goal
  */
-#uea-timestamp-goal, #uea-timestamp-goal__date {
+.container #uea-timestamp-goal, .container #uea-timestamp-goal__date {
   font-weight: bold;
 }
 
 /*
  * Calculated values text
  */
-.uea-calculated {
+.container .uea-calculated {
   color: #fff;
 }
 
+/***********************************************
+ * Footer 
+ ***********************************************/
+footer {
+  flex: none; /* 1 */
+}
+
+footer > ul {
+  margin-bottom: 10px;
+  padding-left: 0;
+
+  display: flex;
+
+  list-style: none;
+}
+
 /*
- * Optimizations for smaller screens
+ * Single footer elements
  */
-@media only screen and (max-width: 767px) {
-  .uea-timestamp {
+footer > ul > li {
+  padding: 0 10px;
+
+  color: #FFF;
+  border-right: 1px solid #FFF;
+}
+
+/*
+ * Remove left spacing from the first footer
+ * element
+ */
+footer > ul > li:first-child {
+  margin-left: auto;
+}
+
+footer > ul > li:last-child {
+  padding: none;
+
+  border-right: none;
+}
+
+footer > ul > li > a {
+  text-decoration: none;
+
+  cursor: pointer;
+
+  color: #FFF;
+}
+
+footer > ul > li > a:hover {
+  text-decoration: underline;
+}
+
+/***********************************************
+ * Optimizations for screens >768px
+ ***********************************************/
+@media screen and (max-width: 767px) and (min-width: 640px) {
+  .container .uea-timestamp {
     margin-top: 23vh;
 
     font-size: 14vw;
   }
 
-  .uea-subtitle {
+  .container .uea-subtitle {
     font-size: 6vw;
+  }
+}
+
+/***********************************************
+ * Optimizations for screens >640px
+ ***********************************************/
+@media screen and (max-width: 639px) {
+  .container .uea-timestamp {
+    margin-top: 15vh;
+
+    font-size: 15vw;
+  }
+
+  /*
+   * Footer
+   */
+  footer > ul {
+    margin-bottom: 0;
+
+    flex-direction: column;
+
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  footer > ul > li {
+    padding: 20px 0;
+
+    border-right: none;
+  }
+
+  footer > ul > li:first-child {
+    margin-left: 0;
   }
 }

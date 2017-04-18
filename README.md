@@ -11,7 +11,6 @@ To suggest new events to be tracked, just open an issue in the [GitHub repositor
 - additional ideas
   - ideas: new years, leap seconds, leap year, round binary representations, round day/hour numbers since unix epoch
 - different "calculated values" text on each reload
-- footer (partial?, with brunch? with pug?)
 - linter
 - display the actual unix timestamp somewhere
 - add editorconfig and linter
@@ -19,3 +18,4 @@ To suggest new events to be tracked, just open an issue in the [GitHub repositor
 - count up vs count down
 - check for performance issues (e.g. with chrome dev tools timeline)
 - generate complete "calculated values" string in js, so only one element needs to be updated
+- use pug and scss instad of html and css
