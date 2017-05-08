@@ -1,0 +1,70 @@
+/***********************************************
+ * Timestamp display
+ ***********************************************/
+.container {
+  flex: 1 0 auto; /* 1 (in _footer.scss) */
+
+  margin: 0 16px;
+}
+
+.container p {
+  color: #fff;
+}
+
+/*
+ * Countdown display
+ */
+.container .uea-timestamp {
+  margin: 35vh 0 0 0;
+
+  font-size: 6em;
+
+  text-shadow: 0 0 3px #000;
+}
+
+/*
+ * Countdown subtitle
+ */
+.container .uea-subtitle {
+  font-size: 1.5em;
+}
+
+/*
+ * Timestamp goal
+ */
+.container #uea-timestamp-goal, .container #uea-timestamp-goal__date {
+  font-weight: bold;
+}
+
+/*
+ * Calculated values text
+ */
+.container .uea-calculated {
+  color: #fff;
+}
+
+/***********************************************
+ * Optimizations for screens >768px
+ ***********************************************/
+@media screen and (max-width: 767px) and (min-width: 640px) {
+  .container .uea-timestamp {
+    margin-top: 23vh;
+
+    font-size: 14vw;
+  }
+
+  .container .uea-subtitle {
+    font-size: 6vw;
+  }
+}
+
+/***********************************************
+ * Optimizations for screens >640px
+ ***********************************************/
+@media screen and (max-width: 639px) {
+  .container .uea-timestamp {
+    margin-top: 15vh;
+
+    font-size: 15vw;
+  }
+}

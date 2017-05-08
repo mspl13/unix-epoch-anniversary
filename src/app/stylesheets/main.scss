@@ -1,0 +1,25 @@
+@import "timestamp-display";
+@import "footer";
+
+html, body {
+  /* Ensure full height background */
+  min-height: 100vh;
+
+  /* Overwrite default body margin */
+  margin: 0 0;
+}
+
+body {
+  height: 100%; /* 1 (in _footer.scss) */
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+
+  font-family: "Arial";
+  /*font-family: monospace;*/
+
+  background-color: #03A9F4;
+  background: linear-gradient(#03A9F4, #8BC34A);
+}

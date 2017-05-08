@@ -4,9 +4,9 @@ import {
   getNextEvent
 } from "./timestamp";
 
-// Importing the main index and css files
+// Importing the main css files
+import "./stylesheets/main.scss";
 const index = require("file-loader?name=index.html!./../index.html");
-const style = require("file-loader?name=main.css!./stylesheets/main.css");
 
 // The DOM timestamp display element
 const domTimestamp = document.getElementById("uea-timestamp");

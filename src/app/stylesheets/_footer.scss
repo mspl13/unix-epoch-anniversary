@@ -1,0 +1,82 @@
+/**
+ * 1. Footer styles were taken from https://goo.gl/PeYkmx
+ *    (includes some fixes for known issues).
+ */
+
+/***********************************************
+ * Footer 
+ ***********************************************/
+footer {
+  flex: none; /* 1 */
+}
+
+footer > ul {
+  margin-bottom: 10px;
+  padding-left: 0;
+
+  display: flex;
+
+  list-style: none;
+}
+
+/*
+ * Single footer elements
+ */
+footer > ul > li {
+  padding: 0 10px;
+
+  color: #FFF;
+  border-right: 1px solid #FFF;
+}
+
+/*
+ * Remove left spacing from the first footer
+ * element
+ */
+footer > ul > li:first-child {
+  margin-left: auto;
+}
+
+footer > ul > li:last-child {
+  padding: none;
+
+  border-right: none;
+}
+
+footer > ul > li > a {
+  text-decoration: none;
+
+  cursor: pointer;
+
+  color: #FFF;
+}
+
+footer > ul > li > a:hover {
+  text-decoration: underline;
+}
+
+/***********************************************
+ * Optimizations for screens >640px
+ ***********************************************/
+@media screen and (max-width: 639px) {
+  /*
+   * Footer
+   */
+  footer > ul {
+    margin-bottom: 0;
+
+    flex-direction: column;
+
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  footer > ul > li {
+    padding: 20px 0;
+
+    border-right: none;
+  }
+
+  footer > ul > li:first-child {
+    margin-left: 0;
+  }
+}
