@@ -6,6 +6,7 @@ import {
 
 // Importing the main css files
 import "./stylesheets/main.scss";
+const index = require("file-loader?name=index.html!./../index.html");
 
 // The DOM timestamp display element
 const domTimestamp = document.getElementById("uea-timestamp");
