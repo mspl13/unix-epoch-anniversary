@@ -18,6 +18,9 @@ const nextEventDate = new Date(nextEventTimestamp * 1000).toUTCString();
 document.getElementById("uea-timestamp-goal").innerHTML = nextEventTimestamp;
 document.getElementById("uea-timestamp-goal__date").innerHTML = nextEventDate;
 
+updateTimestampDisplay(domTimestamp);
+updateCalculatedValues();
+
 // Refresh certain DOM elements to ensure a live counter
 // TODO: execute setInterval without initial wait
 let timerInterval = setInterval(() => {
