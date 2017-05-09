@@ -15,15 +15,25 @@ const domTimestamp = document.getElementById("uea-timestamp");
 let nextEventTimestamp = getNextEvent();
 const nextEventDate = new Date(nextEventTimestamp * 1000).toUTCString();
 
+// Count the timer up (true) or down (false)
+let countUp = false;
+
 document.getElementById("uea-timestamp-goal").innerHTML = nextEventTimestamp;
 document.getElementById("uea-timestamp-goal__date").innerHTML = nextEventDate;
 
-updateTimestampDisplay(domTimestamp);
+updateTimestampDisplay(domTimestamp, countUp);
 updateCalculatedValues();
 
 // Refresh certain DOM elements to ensure a live counter
 // TODO: execute setInterval without initial wait
 let timerInterval = setInterval(() => {
-  updateTimestampDisplay(domTimestamp);
+  updateTimestampDisplay(domTimestamp, countUp);
   updateCalculatedValues();
 }, 1000);
+
+
+// Listen to click events on the timer to allow
+// changing of the count direction
+document.getElementById("uea-timestamp-display").addEventListener("click", event => {
+  countUp = !countUp;
+});

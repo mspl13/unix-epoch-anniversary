@@ -17,21 +17,19 @@
   <body>
     <div class="container">
       <!-- Countdown timestamp display -->
-      <p class="uea-timestamp">
+      <p class="uea-timestamp" id="uea-timestamp-display">
         <span id="uea-timestamp">0</span>
       </p>
 
-      <!-- Count up checkbox -->
-      <div class="uea-checkbox" id="uea-count-direction">
-        <input type="checkbox" name="count-direction" id="uea-count-direction__checkbox">
-        <label for="uea-count-direction">Count Up</label>
-      </div>
+      <p>(Tip: Click on the timer to change the counting direction.)</p>
 
       <!-- Countdown subtitle -->
       <p class="uea-subtitle">
         seconds until the unix epoch time reaches <span id="uea-timestamp-goal"></span> seconds*,
         <br /> on <span id="uea-timestamp-goal__date"></span>.
       </p>
+
+      <!-- TODO: change calculated values text on count-up -->
 
       <!-- Calculated values from timestamp above -->
       <p class="uea-calculated">

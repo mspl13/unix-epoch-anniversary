@@ -33,10 +33,10 @@ export function updateCalculatedValues() {
  *
  * @param {element} domTimestamp
  */
-export function updateTimestampDisplay(domTimestamp) {
-  const countDirectionSwitch = document.getElementById("uea-count-direction__checkbox").checked;
+export function updateTimestampDisplay(domTimestamp, countUp) {
+  // const countDirectionSwitch = document.getElementById("uea-count-direction__checkbox").checked;
 
-  if (countDirectionSwitch) {
+  if (countUp) {
     domTimestamp.innerHTML = Math.floor(Date.now() / 1000);
   } else {
     domTimestamp.innerHTML = nextTimestampGoal - Math.floor(Date.now() / 1000);
