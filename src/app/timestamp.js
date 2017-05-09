@@ -30,11 +30,17 @@ export function updateCalculatedValues() {
 /**
  * Updates the inner HTML of a given DOM element with the
  * current countdown timestamp
- * 
- * @param {element} domTimestamp 
+ *
+ * @param {element} domTimestamp
  */
 export function updateTimestampDisplay(domTimestamp) {
-  domTimestamp.innerHTML = nextTimestampGoal - Math.floor(Date.now() / 1000);
+  const countDirectionSwitch = document.getElementById("uea-count-direction__checkbox").checked;
+
+  if (countDirectionSwitch) {
+    domTimestamp.innerHTML = Math.floor(Date.now() / 1000);
+  } else {
+    domTimestamp.innerHTML = nextTimestampGoal - Math.floor(Date.now() / 1000);
+  }
 }
 
 /**
@@ -44,7 +50,7 @@ export function updateTimestampDisplay(domTimestamp) {
 export function getNextEvent() {
   for (let i = 0; i < ueaEvents.length; i++) {
     let element = ueaEvents[i];
-    
+
     // If the event timestamp is smaller then the current one
     if (element["timestamp"] > parseInt(Date.now() / 1000)) {
       return element["timestamp"];
