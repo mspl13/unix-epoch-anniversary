@@ -1,3 +1,5 @@
+@import "mixins";
+
 /***********************************************
  * Timestamp display
  ***********************************************/
@@ -20,6 +22,10 @@
   font-size: 6em;
 
   text-shadow: 0 0 3px #000;
+
+  span {
+    @include noselect;
+  }
 }
 
 /*

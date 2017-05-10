@@ -1,4 +1,5 @@
 import { ueaEvents } from "./events";
+import { ueaSubtitles } from "./subtitles";
 
 // DOM elements used in this javascript file
 const domCalculatedDays = document.getElementById("uea-calculated__days");
@@ -9,12 +10,27 @@ const domCalculatedMinutes = document.getElementById("uea-calculated__minutes");
 const nextTimestampGoal = getNextEvent() || 0;
 
 /**
+ * Returns a random subtitle from the subtitles file.
+ * Subtitle depends on whether the counter counts up or down
+ * @paran {bool} countUp
+ */
+export function getSubtitle(countUp) {
+  const countDirection = countUp ? "countUp" : "countDown";
+  let subtitleString;
+
+  subtitleString = ueaSubtitles[countDirection][0]["text"];
+
+  return subtitleString;
+}
+
+/**
  * Updates the calculated values DOM elements to the current
  * calculated values.
  * TODO: only temp
  */
 export function updateCalculatedValues() {
-  // Real unix timestamp is in seconds, not milliseconds (each day 86400 seconds are added (according to Wikipedia)
+  // Real unix timestamp is in seconds, not milliseconds
+  // (each day 86400 seconds are added (according to Wikipedia)
   let countdownTime = nextTimestampGoal - Math.floor(Date.now() / 1000);
 
   // Calculated manually because UTC is relative
@@ -30,11 +46,16 @@ export function updateCalculatedValues() {
 /**
  * Updates the inner HTML of a given DOM element with the
  * current countdown timestamp
- * 
- * @param {element} domTimestamp 
+ *
+ * @param {element} domTimestamp
+ * @param {bool} countUp
  */
-export function updateTimestampDisplay(domTimestamp) {
-  domTimestamp.innerHTML = nextTimestampGoal - Math.floor(Date.now() / 1000);
+export function updateTimestampDisplay(domTimestamp, countUp) {
+  if (countUp) {
+    domTimestamp.innerHTML = Math.floor(Date.now() / 1000);
+  } else {
+    domTimestamp.innerHTML = nextTimestampGoal - Math.floor(Date.now() / 1000);
+  }
 }
 
 /**
@@ -44,7 +65,7 @@ export function updateTimestampDisplay(domTimestamp) {
 export function getNextEvent() {
   for (let i = 0; i < ueaEvents.length; i++) {
     let element = ueaEvents[i];
-    
+
     // If the event timestamp is smaller then the current one
     if (element["timestamp"] > parseInt(Date.now() / 1000)) {
       return element["timestamp"];
