@@ -1,4 +1,5 @@
 import { ueaEvents } from "./events";
+import { ueaSubtitles } from "./subtitles";
 
 // DOM elements used in this javascript file
 const domCalculatedDays = document.getElementById("uea-calculated__days");
@@ -9,12 +10,27 @@ const domCalculatedMinutes = document.getElementById("uea-calculated__minutes");
 const nextTimestampGoal = getNextEvent() || 0;
 
 /**
+ * Returns a random subtitle from the subtitles file.
+ * Subtitle depends on whether the counter counts up or down
+ * @paran {bool} countUp
+ */
+export function getSubtitle(countUp) {
+  const countDirection = countUp ? "countUp" : "countDown";
+  let subtitleString;
+
+  subtitleString = ueaSubtitles[countDirection][0]["text"];
+
+  return subtitleString;
+}
+
+/**
  * Updates the calculated values DOM elements to the current
  * calculated values.
  * TODO: only temp
  */
 export function updateCalculatedValues() {
-  // Real unix timestamp is in seconds, not milliseconds (each day 86400 seconds are added (according to Wikipedia)
+  // Real unix timestamp is in seconds, not milliseconds
+  // (each day 86400 seconds are added (according to Wikipedia)
   let countdownTime = nextTimestampGoal - Math.floor(Date.now() / 1000);
 
   // Calculated manually because UTC is relative
@@ -32,10 +48,9 @@ export function updateCalculatedValues() {
  * current countdown timestamp
  *
  * @param {element} domTimestamp
+ * @param {bool} countUp
  */
 export function updateTimestampDisplay(domTimestamp, countUp) {
-  // const countDirectionSwitch = document.getElementById("uea-count-direction__checkbox").checked;
-
   if (countUp) {
     domTimestamp.innerHTML = Math.floor(Date.now() / 1000);
   } else {

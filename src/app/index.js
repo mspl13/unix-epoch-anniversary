@@ -1,5 +1,6 @@
 import {
   updateCalculatedValues,
+  getSubtitle,
   updateTimestampDisplay,
   getNextEvent
 } from "./timestamp";
@@ -18,9 +19,7 @@ const nextEventDate = new Date(nextEventTimestamp * 1000).toUTCString();
 // Count the timer up (true) or down (false)
 let countUp = false;
 
-document.getElementById("uea-timestamp-goal").innerHTML = nextEventTimestamp;
-document.getElementById("uea-timestamp-goal__date").innerHTML = nextEventDate;
-
+updateSubtitle();
 updateTimestampDisplay(domTimestamp, countUp);
 updateCalculatedValues();
 
@@ -31,9 +30,32 @@ let timerInterval = setInterval(() => {
   updateCalculatedValues();
 }, 1000);
 
-
 // Listen to click events on the timer to allow
 // changing of the count direction
 document.getElementById("uea-timestamp-display").addEventListener("click", event => {
   countUp = !countUp;
+
+  toggleVisibility(document.getElementById("uea-calculated"));
+
+  updateSubtitle();
 });
+
+/**
+ * Updates the subtitle document node and it's values.
+ */
+function updateSubtitle() {
+  document.getElementById("uea-subtitle").innerHTML = getSubtitle(countUp);
+  document.getElementById("uea-timestamp-goal").innerHTML = nextEventTimestamp;
+  document.getElementById("uea-timestamp-goal__date").innerHTML = nextEventDate;
+}
+
+/**
+ * Hides or shows a given element, depending on it's current state.
+ */
+function toggleVisibility(element) {
+  if(element.style.visibility === "hidden") {
+    element.style.visibility = "visible";
+  } else {
+    element.style.visibility = "hidden";
+  }
+}
