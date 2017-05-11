@@ -16,4 +16,4 @@ export const ueaEvents = [
     "timestamp": 2147483647,
     "text": "End of (32-bit) time"
   },
-]
+];
