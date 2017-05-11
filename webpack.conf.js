@@ -7,15 +7,33 @@ module.exports = {
     filename: "bundle.js"
   },
   module: {
-    rules: [{
-      test: /\.scss$/,
-      use: [{
-        loader: "style-loader" // creates style nodes from JS strings
-      }, {
-        loader: "css-loader" // translates CSS into CommonJS
-      }, {
-        loader: "sass-loader" // compiles Sass to CSS
-      }]
-    }]
+    rules: [
+      {
+        // Sass files
+        test: /\.scss$/,
+        use: [
+          {
+            loader: "style-loader" // Creates style nodes from JS strings
+          }, {
+            loader: "css-loader" // Translates CSS into CommonJS
+          }, {
+            loader: "sass-loader" // Compiles Sass to CSS
+          }
+        ]
+      },
+      // JavaScript Files
+      {
+        test: /\.js$/,
+        use: [
+          // Convert to ES2015
+          {
+            loader: "babel-loader",
+            query: {
+              presets: ["es2015"]
+            }
+          }
+        ]
+      }
+    ]
   }
 };
