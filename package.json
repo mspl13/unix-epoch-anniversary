@@ -8,9 +8,13 @@
   "license": "MIT",
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server --config webpack.conf.js --content-base ./dist",
-    "build": "node_modules/.bin/webpack --config webpack.conf.js"
+    "build": "node_modules/.bin/webpack --config webpack.conf.js",
+    "build:prod": "node_modules/.bin/webpack --config webpack.conf.js -p"
   },
   "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
     "css-loader": "^0.28.0",
     "eslint": "^3.19.0",
     "file-loader": "^0.11.1",
