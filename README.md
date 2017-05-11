@@ -5,3 +5,6 @@ This small page displays a countdown until the next event in the unix timestamp.
 
 ## Suggesting new events
 To suggest new events to be tracked, just open an issue in the [GitHub repository](https://github.com/mspl13/unix-epoch-anniversary/issues).
+
+## Custom Events
+You can also use the http query parameter `timestamp` to track custom events. The value should be given in seconds. An example would be `https://spliethoever.de/projects/uea?timestamp=2222222222` to track the timestamp _2222222222_.
