@@ -26,7 +26,6 @@ export function getSubtitle(countUp) {
 /**
  * Updates the calculated values DOM elements to the current
  * calculated values.
- * TODO: only temp
  */
 export function updateCalculatedValues() {
   // Real unix timestamp is in seconds, not milliseconds
@@ -59,10 +58,18 @@ export function updateTimestampDisplay(domTimestamp, countUp) {
 }
 
 /**
- * Returns the next event from the event array. If no new
- * event is available to track, the function will return null.
+ * Returns the next event timestamp from the query parameter. If
+ * no query parameter is given, it will return the next timestamp from
+ * the event array. If no new event is available in the event array,
+ * the function will return null.
  */
 export function getNextEvent() {
+  const timestampQuery = getQueryParameterByName("timestamp");
+
+  if (timestampQuery !== null && timestampQuery !== "") {
+    return parseInt(timestampQuery);
+  }
+
   for (let i = 0; i < ueaEvents.length; i++) {
     let element = ueaEvents[i];
 
@@ -71,4 +78,25 @@ export function getNextEvent() {
       return element["timestamp"];
     }
   }
+
+  return null;
 }
+
+/**
+ * Returns the value for a given http query parameter as string.
+ * Inspired by http://stackoverflow.com/a/901144/2952875
+ *
+ * @param {string} parameterName
+ */
+function getQueryParameterByName(parameterName) {
+  const regex = new RegExp("[?&]" + parameterName + "(=([^&#]*)|&|#|$)");
+  const results = regex.exec(window.location.search);
+
+  // If query parameter is not present
+  if (!results) return null;
+  // If the value for the query parameter is empty
+  if (!results[2]) return "";
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+console.log(getQueryParameterByName("baz"));
