@@ -1,25 +1,19 @@
 export const ueaEvents = [
-  // Test event
-  {
-    "timestamp": 1490779300,
-    "text": "foobar"
-  },
-
   // Next "half billennium"
   {
     "timestamp": 1500000000,
-    "text": "foobar"
+    "text": "Next \"half billennium\""
   },
 
   // Next billennium
   {
     "timestamp": 2000000000,
-    "text": "foobar"
+    "text": "Next billennium"
   },
 
   // End of (32-bit) time
   {
     "timestamp": 2147483647,
-    "text": "foobar"
+    "text": "End of (32-bit) time"
   },
-]
+];

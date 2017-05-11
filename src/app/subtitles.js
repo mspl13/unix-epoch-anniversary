@@ -11,4 +11,4 @@ export const ueaSubtitles = {
       text: "<span id=\"uea-timestamp-goal\"></span> seconds* will be reached on <span id=\"uea-timestamp-goal__date\"></span>."
     }
   ]
-}
+};

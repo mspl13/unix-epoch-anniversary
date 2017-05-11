@@ -7,7 +7,7 @@ import {
 
 // Importing the main css files
 import "./stylesheets/main.scss";
-const index = require("file-loader?name=index.html!./../index.html");
+import "file-loader?name=index.html!./../index.html";
 
 // The DOM timestamp display element
 const domTimestamp = document.getElementById("uea-timestamp");
@@ -24,15 +24,14 @@ updateTimestampDisplay(domTimestamp, countUp);
 updateCalculatedValues();
 
 // Refresh certain DOM elements to ensure a live counter
-// TODO: execute setInterval without initial wait
-let timerInterval = setInterval(() => {
+setInterval(() => {
   updateTimestampDisplay(domTimestamp, countUp);
   updateCalculatedValues();
 }, 1000);
 
 // Listen to click events on the timer to allow
 // changing of the count direction
-document.getElementById("uea-timestamp-display").addEventListener("click", event => {
+document.getElementById("uea-timestamp-display").addEventListener("click", () => {
   countUp = !countUp;
 
   toggleVisibility(document.getElementById("uea-calculated"));
